@@ -39,6 +39,7 @@ function Rig() {
             delta
         )
     })
+    return null;
 }
 
 export default Hero
