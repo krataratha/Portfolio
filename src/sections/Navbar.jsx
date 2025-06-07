@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'motion/react'
+import { motion } from 'framer-motion'
 function Navigation() {
   return <ul className='nav-ul'><li className='nav-li'>
     <a href="#home" className='nav-link'>Home</a></li>
