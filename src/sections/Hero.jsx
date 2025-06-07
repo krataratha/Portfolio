@@ -23,7 +23,7 @@ const Hero = () => {
                         {/* <Float>
                             <Astronaut scale={isMobile && 0.23} position={isMobile && [0, -1.5, 0]} />
                         </Float> */}
-                        <Rig />
+                        {/* <Rig /> */}
                     </Suspense>
                 </Canvas>
             </figure>
@@ -32,7 +32,8 @@ const Hero = () => {
 };
 
 function Rig() {
-    return useFrame((state, delta) => {
+     useFrame((state, delta) => {
+        console.log(state.mouse.x, state.mouse.y, delta);
         easing.damp3(state.camera.position,
             [state.mouse.x / 10, 1 + state.mouse.y / 10, 3],
             0.5,

@@ -209,7 +209,8 @@ export const Particles = ({
 
   const animate = () => {
     clearContext();
-    circles.current.forEach((circle, i) => {
+    for (let i = circles.current.length - 1; i >= 0; i--) {
+      const circle = circles.current[i];
       // Handle the alpha value
       const edge = [
         circle.x + circle.translateX - circle.size, // distance from left edge
@@ -247,13 +248,11 @@ export const Particles = ({
         circle.y < -circle.size ||
         circle.y > canvasSize.current.h + circle.size
       ) {
-        // remove the circle from the array
         circles.current.splice(i, 1);
-        // create a new circle
         const newCircle = circleParams();
         drawCircle(newCircle);
       }
-    });
+    }
     rafID.current = window.requestAnimationFrame(animate);
   };
 

@@ -39,7 +39,6 @@ const GLOBE_CONFIG = {
 
 export function Globe({ className, config = GLOBE_CONFIG }) {
   let phi = 0;
-  let width = 0;
   const canvasRef = useRef(null);
   const pointerInteracting = useRef(null);
   const pointerInteractionMovement = useRef(0);
@@ -67,6 +66,7 @@ export function Globe({ className, config = GLOBE_CONFIG }) {
   };
 
   useEffect(() => {
+    let width = 0; // Move here
     const onResize = () => {
       if (canvasRef.current) {
         width = canvasRef.current.offsetWidth;

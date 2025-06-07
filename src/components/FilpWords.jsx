@@ -19,10 +19,12 @@ export const FlipWords = ({
     }, [currentWord, words]);
 
     useEffect(() => {
-        if (!isAnimating)
-            setTimeout(() => {
+        if (!isAnimating) {
+            const timeout = setTimeout(() => {
                 startAnimation();
             }, duration);
+            return () => clearTimeout(timeout); // <-- Clear timeout on cleanup
+        }
     }, [isAnimating, duration, startAnimation]);
 
     return (
